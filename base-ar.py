@@ -52,3 +52,35 @@ df['Mean'] = (df['Low'] + df['High'])
 #cleaning the data for any NaN or Null fields
 df = df.dropna()
 
+
+
+# creating a copy for making small refinements
+dataset_for_prediction = df.copy()
+dataset_for_prediction['Actual'] = dataset_for_prediction['Mean'].shift()
+dataset_for_prediction = dataset_for_prediction.dropna()
+
+# date time typecast
+dataset_for_prediction['Date'] = pd.to_datetime(dataset_for_prediction['Date'])
+dataset_for_prediction.index = dataset_for_prediction['Date']
+
+
+
+
+# normalizing the exogeneous variables
+from sklearn.preprocessing import MinMaxScaler
+sc_in = MinMaxScaler(feature_range= (0, 1))
+scaled_input = sc_in.fit_transform(dataset_for_prediction[['Low','High','Open','Close','Volume','Mean']])
+scaled_input = pd.DataFrame(scaled_input, index= dataset_for_prediction.index)
+X = scaled_input
+X.rename(columns={
+    0: 'Low',
+    1: 'High',
+    2: 'Open',
+    3: 'Close',
+    4: 'Volume',
+    5: 'Mean'
+}, inplace= True)
+
+print("Normalized X")
+print(X.head())
+
