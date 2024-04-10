@@ -4,12 +4,12 @@ import numpy as np
 from statsmodels.tsa.vector_ar.var_model import VAR
 
 # prediction
-data = df['Mean', 'Close']
+data = df[['Mean', 'Close']]
 data = np.array(data, dtype='float32')
 data = data[:2500]
 
 # exogeous varibales
-exo = df['Open']
+exo = df[['Open']]
 exo = np.array(exo, dtype='float32')
 exo = exo[:2500,:]
 model = VAR(data, exog= exo)
@@ -21,7 +21,7 @@ arr = np.array(df['Mean'])
 N = 200     # test data
 ap = arr[-N:]
 z = exo[-N:, :]
-a2 = result.forecase(model.endog, N, z)
+a2 = result.forecast(model.endog, N, z)
 act = a2[:, 1:]
 
 # VAR model calls
