@@ -58,18 +58,18 @@ The [paper](9.pdf) contains all details of algorithms used along with results, a
 
 OR
 
-1. pipenv install --ignore
-2. pipenv shell
+1. ```pipenv install --ignore```
+2. ```pipenv shell```
 
 ### How to Run
-1. cd \<PROJECT ROOT DIRECTORY\>
-2. python \<filename\>.py
+1. ```cd \<PROJECT ROOT DIRECTORY\>```
+2. ```python \<filename\>.py```
 
 ### File Descriptions:
-* auto-ARIMA.py: Runs automated gridsearch from pmdarima library, to find the best model parameters.
-* AR.py, ARMA.py, ARIMA.py, SARIMAX.py use the above found best parameters to train the respective models as per their filenames.
-* GARCH-SARIMAX.py runs SARIMAX models added with error of residuals from SARIMAX using GARCH.
-* elasticnet.py runs Linear Regression with a combination of L1 and L2 penalty.
-* bayesian.py runs BayesianRidge regression with optimal parameters.
-* polyreg.py runs Linear Regression by adding polynomial features.
-* var.py runs runs VAR model on the data.
+* `auto-ARIMA.py`: Runs *automated gridsearch* from *pmdarima library*, to find the best model parameters.
+* `base-ar.py`, `base-arma.py`, `base-arima.py`, `sarimax.py` use the above found best parameters to train the respective models as per their filenames.
+* ```garch-sarimax.py``` runs *sarimax models* added with error of residuals from `SARIMAX` using `GARCH`.
+* `elasticnet.py` runs *Linear Regression* with a combination of L1 and L2 penalty.
+* `bayesian.py` runs *BayesianRidge regression* with optimal parameters.
+* `polyreg.py` runs *Linear Regression* by adding polynomial features.
+* `var.py` runs runs *VAR* model on the data.
