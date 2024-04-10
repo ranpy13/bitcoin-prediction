@@ -1,8 +1,9 @@
 from base import *
 from sklearn.linear_model import ElasticNet
+import numpy as np
 
 # N --> train size
-N = 2441
+N = 2411
 
 # prediciton mean based upon open
 X=df['Open']
@@ -45,4 +46,3 @@ for j in [0.1, 0.5, 0.9]:
     
     print("Linear Regression with Elastic Net")
     print("Mean value depending on open")
-    
