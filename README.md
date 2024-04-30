@@ -60,6 +60,7 @@ OR
 
 1. ```pipenv install --ignore```
 2. ```pipenv shell```
+3. ```.\Scripts\activate```
 
 ### How to Run
 1. ```cd \<PROJECT ROOT DIRECTORY\>```
